@@ -126,3 +126,29 @@ while (exCounter < 2) {
 
 // Result
 console.log(p1);
+
+// Chef Make Dinners -------------------------------------------------------------------------------------------------------------
+class Dinner {
+  constructor(appetizer, entree, dessert) {
+    this.appetizer = appetizer;
+    this.entree = entree;
+    this.dessert = dessert;
+  }
+}
+
+class Chef {
+  createDinner(appetizer, entree, dessert) {
+    return new Dinner(appetizer, entree, dessert);
+  }
+}
+
+const chef = new Chef();
+
+const dinner1 = chef.createDinner("Salad", "Steak", "Cheesecake");
+const dinner2 = chef.createDinner("Soup", "Fish", "Ice Cream");
+const dinner3 = chef.createDinner("Fruit", "Chicken", "Brownie");
+
+console.log(dinner1);
+console.log(dinner2);
+console.log(dinner3);
+
