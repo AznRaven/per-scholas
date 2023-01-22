@@ -14,3 +14,49 @@ class Hamster {
       return this.price
     }
   }
+
+  class Person {
+    constructor(name)   
+    {
+      this.name = name //'john'
+      this.age = 0 
+      this.height = 0
+      this.weight = 0
+      this.mood = 0
+      this.hamsters = []
+      this.bankAccount = 0
+  }
+  getName() {
+    return this.name
+  }
+  getAge() {
+    return this.age
+  }
+  getWeight() {
+    return this.weight
+  }
+  greet () {
+    console.log ('My name is ' + this.name)
+  }
+  eat () {
+    this.weight++
+    this.mood++
+  }
+  exercise() {
+    this.weight--
+  }
+  ageUp () {
+    this.age++
+    this.height++
+    this.weight++
+    this.mood--
+    this.bankAccount += 10
+  }
+  buyHamster(hamster) {
+    this.hamsters.push(hamster)
+    this.mood += 10
+    //get the price of the hamster
+    //subtract the price of the hamster from bankaccount
+  this.bankAccount -= hamster.getPrice()
+  }
+  }
