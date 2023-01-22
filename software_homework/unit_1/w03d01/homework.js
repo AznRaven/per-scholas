@@ -15,6 +15,7 @@ class Hamster {
     }
   }
 
+  // create person class ----------------------------------------------------------------------------------
   class Person {
     constructor(name)   
     {
@@ -60,3 +61,68 @@ class Hamster {
   this.bankAccount -= hamster.getPrice()
   }
   }
+
+  // Create a Story with your Person class ----------------------------------------------------------------------------------
+//1. Instantiate a new Person named Timmy
+  const p1 = new Person('Timmy')
+
+// 2. Age Timmy five years
+let ageCounter = 0;
+while (ageCounter <5) {
+  p1.ageUp();
+  ageCounter++
+}
+
+// 3. At this point Timmy's a little bummed. As a precocious child, he feels he's "seen it all" already. Have him eat five times.
+let eatCounter = 0;
+while (eatCounter < 5) {
+  p1.eat();
+  eatCounter++
+}
+
+// 4. Now Timmy's a little heavier than he wants to be. Kindergarten's coming up and he wants to look good. Have him exercise five times
+let exCounter = 0;
+while (exCounter < 5) {
+  p1.exercise();
+  exCounter++
+}
+
+// 5. Age Timmy 9 years
+ageCounter = 0;
+while (ageCounter < 9) {
+  p1.ageUp();
+  ageCounter++
+}
+
+// 6. Create a hamster named "Gus"
+const ham1 = new Hamster('Gus');
+
+// 7. Set Gus's owner to the string "Timmy"
+ham1.owner = 'Timmy'
+
+// 8. Have Timmy "buy" Gus
+p1.buyHamster(ham1)
+
+// 9. Age Timmy 15 years
+ageCounter = 0;
+while (ageCounter < 15) {
+  p1.ageUp();
+  ageCounter++
+}
+
+// 10. Have Timmy eat twice
+eatCounter = 0;
+while (eatCounter < 2) {
+  p1.eat();
+  eatCounter++
+}
+
+// 11. Have Timmy exercise twice
+exCounter = 0;
+while (exCounter < 2) {
+  p1.exercise();
+  exCounter++
+}
+
+// Result
+console.log(p1);
