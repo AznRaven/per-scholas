@@ -114,6 +114,11 @@ var menuLinks = [
           linkCopy = x
         }else{
         showingSubMenu = false
+        // Task 6.4
+        mainEl.innerHTML = '<h1>about</h1>'
+        // if(e.target.innerHTML == 'about'){
+          
+        // }
         }
         }
     })  
@@ -127,10 +132,7 @@ var menuLinks = [
     } 
 
     
-    // Task 6.4
-    if(e.target.innerHTML == 'about'){
-      mainEl.innerHTML = '<h1>about</h1>'
-    }
+    
     
   } // close handleClick
   // Task 5.8
@@ -162,10 +164,11 @@ var menuLinks = [
     topMenuLinks.forEach(x => x.classList.remove('active')) 
     
     // Task 6.3
-    mainEl.innerHTML = e.target.innerHTML 
+    // mainEl.innerHTML = e.target.innerHTML 
+    mainEl.innerHTML = `<h1>${e.target.innerText}</h1>`
 
     // Task 6.4
-    mainEl.innerHTML = e.target.innerHTML 
+    // mainEl.innerHTML = e.target.innerHTML 
 
   } // subMenu event listener 
 
