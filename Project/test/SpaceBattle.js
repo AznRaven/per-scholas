@@ -10,142 +10,98 @@ class Ship {
     }
     // choice
     choice(alien, USSAssembly) {
-        log.innerHTML = `hull: ${USSAssembly.firePower}  firepower: ${USSAssembly.firePower}`
+        // log.innerHTML = 'choice'
         // console.log(alien.alienShip.length)
         // console.log('inside choice')
         console.log(USSAssembly)
         alien.alienShip.length == 0 ? this.playerWin() : null
 
         let alienCounter = 0
-        // alienShips.innerHTML = 'hello'
+
         while (alienCounter < alien.alienShip.length) {
             alienCounter++
         }
-        // let msg = document.querySelector('.message')
-        // var msgP = document.createElement('p')
-        msgP.innerHTML = `There are ${alienCounter} alien ships!`
-        msgP.innerHTML += '<br>'
-        msgP.innerHTML += `Click on an alien ship to attack!` + '<br>'
-        msg.appendChild(msgP)
-        console.log(`There are ${alienCounter} alien ships!`)
 
-        // let ship = prompt(`Which ship do you want to attack? Please pick a number between 1 and ${alien.alienShip.length}`);
-        alienDiv.addEventListener('click', alienDivShips)
+        console.log(`There are ${alienCounter} alien ships!`)
+        msg.innerHTML = `There are ${alienCounter} alien ships!` + '<br>'
+        msg.innerHTML += `Click on an Alien ship to attack!` + '<br>'
+
+        //   let ship = prompt(`Which ship do you want to attack? Please pick a number between 1 and ${alien.alienShip.length}`);
+        console.log('\n')
+
+        alienShipEl.addEventListener('click', alienDivShips)
 
         function alienDivShips(e) {
-            let str = e.target.innerHTML;
-            // console.log(str)
-            let ship = str.match(/#(\d+)/)[1];
-            // console.log('choice ' + ship);
-            // console.log(index);
 
-            if (e.target.tagName == 'P') {
+            Array.from(alienShipEl.children).forEach(x => x.style.color = "black")
+            msg.innerHTML = ''
+            if (e.target.tagName == "P") {
+
+                e.target.style.color = "red"
                 console.log(e.target)
-            } else {
-                return
+                let str = e.target.innerHTML
+                let result = str.match(/#(\d+)/)
+                let ship = result[1]
+                if (ship >= 1 && ship <= alien.alienShip.length) {
+                    msg.innerHTML = "Attacking alien ship #" + ship
+                    console.log("Attacking alien ship #" + ship)
+                    USSAssembly.playerAttack(alien, USSAssembly, ship)
+                } else {
+                    log.innerHTML = `Please pick a number between 1 and ${alien.alienShip.length}`
+                    console.log(`Please pick a number between 1 and ${alien.alienShip.length}`)
+                    USSAssembly.choice(alien, USSAssembly)
+                }
             }
-            console.log(e.target.innerText)
-            msgP.innerHTML = '<br>' + `Attacking ${e.target.innerText}`
 
-            if (ship >= 1 && ship <= alien.alienShip.length) {
-                console.log("Attacking alien ship #" + ship)
-                USSAssembly.playerAttack(alien, USSAssembly, ship)
-            } else {
-                console.log(`Please pick a number between 1 and ${alien.alienShip.length}`)
-                this.choice(alien, USSAssembly)
-            }
+            // log.innerHTML = `${e.target}`
         }
 
-        // if (ship >= 1 && ship <= alien.alienShip.length) {
-        //     console.log("Attacking alien ship #" + ship)
-        //     this.playerAttack(alien, USSAssembly, ship)
-        // } else {
-        //     console.log(`Please pick a number between 1 and ${alien.alienShip.length}`)
-        //     this.choice(alien, USSAssembly)
-        // }
 
     } // end Choice
     // newGame
     newGame() {
-
+        // log.innerHTML = 'newGame'
         const USSAssembly = new Ship()
         this.hull = 20
+        // console.log('newGame')
         const alien = new Factory('Alien')
-        // alienShips.innerHTML = 'hi'
-        // generate 6 aliens
+        // generate random alien ships
         alien.generateShip()
-        // console.log('after new game')
-        // console.log(alien)
-        // console.log('Alien Status')
-        // console.log('**********************************************\n')
-        // var alienDiv = document.querySelector('.alienShip')
+
+        console.log('Alien Status')
+        console.log('**********************************************\n')
         for (let i = 0; i < alien.alienShip.length; i++) {
-            // let alienShips = document.createElement('p')
-            // alienDiv.innerHTML +=   `hi ${i}`
-            // alienShips.classList.add('alienShip', `a${i}`)
-            alienShips.innerHTML += `Alien Ship #${i + 1} - `
-            alienShips.innerHTML += `(hull: ${alien.alienShip[i].hull} firepower: ${alien.alienShip[i].firePower} accuracy: ${alien.alienShip[i].accuracy})` + '<br><br>'
-            console.log(alienShips)
+            console.log(`Alien ship #${i + 1}`)
+            alienShipEl.innerHTML += `<p>Alien ship #${i + 1}</p>` + '<br>'
 
-            alienDiv.appendChild(alienShips)
+            console.log(alien.alienShip[i])
+            alienShipEl.innerHTML += `(
+            hull: ${alien.alienShip[i].hull} 
+            firepower: ${alien.alienShip[i].firePower} 
+            accuracy: ${alien.alienShip[i].accuracy})` + '<br><br>'
+
+            console.log('\n')
         }
-        // console.log('**********************************************\n')
-
-
-        // playerShip.innerHTML = 'hello'
+        console.log('**********************************************\n')
         this.choice(alien, USSAssembly)
     } // end newGame
     // playerAttack
     playerAttack(alien, USSAssembly, ship) {
+        // log.innerHTML = 'playerAttack'
         // console.log('inside playerAttack')
         // console.log('ship' + ship)
         // decrement ship # to match index #
         ship--
         // console.log('ship' + ship)
         // console.log(USSAssembly)
-
         if (Math.random() < USSAssembly.accuracy) {
             // console.log('ship' + ship)
+            msg.innerHTML += '<br>' + "You hit alien ship #" + (ship + 1) + " for 5 damange"
             console.log("You hit alien ship #" + (ship + 1) + " for 5 damange\n")
             // console.log(ship)
             alien.alienShip[ship].hull -= USSAssembly.firePower
             alien.alienShip[ship].hull <= 0 ? console.log('!!!!! Alien ship is destroyed !!!!!\n')
                 : null
-
-
-
-            msgP.innerHTML += '<br>' + '!!!!! Alien ship is destroyed !!!!!'
-
-            while (alienDiv.firstChild) {
-                alienDiv.removeChild(alienDiv.firstChild);
-
-            }
-            // console.log(alienDiv)
-            // let alienDelete = '.a' + String(ship)
-            // let child = document.querySelector(alienDelete);
-            // child.remove()
-            // let alienDiv = document.querySelector('.alienShip')
-
-            // console.log(alienShips.innerHTML)
-            for (let i = 0; i < alien.alienShip.length; i++) {
-                // console.log('hi')
-                if (alien.alienShip[i].hull == 0) {
-                    
-                    continue
-                } else {
-                    let alienShips = document.createElement('p')
-                    alienShips.classList.add('alienShip', `a${i}`)
-                    alienShips.innerHTML = `Alien Ship #${i + 1} - `
-                    alienShips.innerHTML += `(hull: ${alien.alienShip[i].hull} firepower: ${alien.alienShip[i].firePower} accuracy: ${alien.alienShip[i].accuracy})`
-                }
-
-                console.log(alienShips)
-
-                alienDiv.appendChild(alienShips)
-            }
-
-            console.log('log alien')
-            console.log(alien)
 
             alien.alienShip[ship].hull <= 0 ? alien.alienShip.splice(ship, 1)
                 : null
@@ -157,27 +113,36 @@ class Ship {
             console.log('**********************************************\n')
             console.log('Alien Status')
             console.log('**********************************************\n')
+            alienShipEl.innerHTML = ''
             for (let i = 0; i < alien.alienShip.length; i++) {
-                // alienShips.innerHTML = `Alien ship #${i + 1}`
-                alienShips.innerHTML = `Alien Ship #${i + 1} - `
-                alienShips.innerHTML += `(hull: ${alien.alienShip[i].hull} firepower: ${alien.alienShip[i].firePower} accuracy: ${alien.alienShip[i].accuracy})`
-
+                // alienShipEl.innerHTML += `Alien ship #${i + 1}`
+                // console.log(`Alien ship #${i + 1}`)
+                // alienShipEl.innerHTML = alien.alienShip[i]
+                // console.log(alien.alienShip[i])
                 console.log(`Alien ship #${i + 1}`)
+                alienShipEl.innerHTML += `<p>Alien ship #${i + 1}</p>` + '<br>'
+
                 console.log(alien.alienShip[i])
+                alienShipEl.innerHTML += `(
+                    hull: ${alien.alienShip[i].hull} 
+                    firepower: ${alien.alienShip[i].firePower} 
+                    accuracy: ${alien.alienShip[i].accuracy})` + '<br><br>'
+
                 console.log('\n')
             }
             console.log('**********************************************\n')
             // alien.alienShip.forEach(x => console.log('Alien') + console.log(x))
-            this.choice(alien, USSAssembly)
+            // this.choice(alien, USSAssembly)
 
 
         } else {
             // console.log('ship' + ship)
-            console.log("You missed")
+            msg.innerHTML += '<br>' + 'Your attack missed!'
+            console.log("Your attack missed!")
             // console.log(alien)
             // this.choice(alien)
             // console.log('ship' + ship)
-            this.alienAttack(alien, USSAssembly, ship)
+            // this.alienAttack(alien, USSAssembly, ship)
         }
 
 
@@ -252,6 +217,7 @@ class Ship {
         play = false
         process.exit()
     } // end gameOver
+
 }
 
 // alien ship factory
@@ -296,16 +262,16 @@ console.log('**********************************************')
 console.log(USSAssembly)
 console.log('**********************************************\n')
 
-var title = document.querySelector('.title')
-title.innerHTML = "Space Battle"
+var titleEl = document.querySelector('.title')
+titleEl.innerHTML = "Space Battle"
 
-var playerStatus = document.querySelector('.playerStatus')
-playerStatus.innerHTML = 'Player Status'
+var playerStatusEl = document.querySelector('.playerStatus')
+playerStatusEl.innerHTML = 'Player Status'
 var playerDiv = document.querySelector('.playerDiv')
 
 var alienStatus = document.querySelector('.alienStatus')
 alienStatus.innerHTML = 'Alien Status'
-var alienDiv = document.querySelector('.alienShip')
+var alienShipEl = document.querySelector('.alienShip')
 var alienShips = document.createElement('p')
 
 var msg = document.querySelector('.message')

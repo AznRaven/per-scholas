@@ -38,11 +38,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
   pastRace = document.querySelector('#past-races')
   
   for(let i = 0; i < pastRace.children.length; i++){
-    pastRace.children[i].textContent == "Chicago" ? pastRace.children[i].remove() : console.log('no')
+    pastRace.children[i].textContent == "Chicago" ? 
+    pastRace.children[i].remove() : 
+    null
     
   }
 
   // Part 6
+  // let saigon = document.createElement('li')
+  // saigon.innerHTML = 'saigon'
+  // pastRace.appendChild(saigon)
+
   pastRace.innerHTML += '<li>Saigon</li>'
 
   // Part 7
@@ -59,7 +65,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
   newD.appendChild(newP)
   // console.dir(newD) 
   // console.log(adventures)
+  // newD.innerHTML += "<h1>Saigon</h1>"
+  // newD.innerHTML += "<p>Saigon</p>"
   adventures.innerHTML += newD.outerHTML
+
+  
 
   // Part 8
   let quoteTitle = document.querySelector("#quote-title")
@@ -73,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // console.log(post)
     post.addEventListener("mouseout", function() {
       console.log('purple')
-      post.classList.toggle("red");
-      post.classList.toggle("purple");
+      post.classList.toggle("red")
+      post.classList.toggle("purple")
       
         // post.classList.toggle("purple")
         // post.className = ("blog-post purple")
@@ -84,8 +94,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     post.addEventListener("mouseenter", function() {
       console.log('red')
-      post.classList.toggle("purple");
-      post.classList.toggle("red");
+      post.classList.toggle("purple")
+      post.classList.toggle("red")
       
         // post.classList.toggle("red")
         // post.className = ("blog-post red")
