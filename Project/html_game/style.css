@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: 5px solid purple; */
+    justify-content: space-around;
+    background-image: url("bg.jpg");
+    background-size: auto;
+    opacity: 0.9;
+    background-size: cover;
+}
+.container {
+    display: flex;
+    
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+}
+.col {
+    flex-direction: column;
+}
+.row {
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.answer {
+    display: flex;
+    /* border: 1px solid black; */
+    border-radius: 15px 50px 30px;
+    background: purple;
+    border: 10px solid red;
+    width: 40%;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 10px;
+    font-size: 40px;
+    /* background: linear-gradient(to right, red, purple); */
+    /* border-image:  */
+    /* linear-gradient(
+      to bottom, 
+      red, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%; */
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+}
+.player1D, .player2D {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px 50px 30px;
+    background: purple;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+}
+.question {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    color: white;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: space-between;
+    font-size:1.2vw;
+}
