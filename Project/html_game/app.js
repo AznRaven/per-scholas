@@ -359,6 +359,9 @@ function sound(src) {
 }
 
 function startGame() {
+    var audio = document.getElementById("myAudio");
+    audio.volume = 0.5; // set volume to 50%
+    audio.play();
     // log.innerHTML = (`length: ${questions.length} p1: ${p1points} p2: ${p2points}`)
     log.innerHTML = playerStart
     if (questions.length == 1 && p1points > p2points) {
@@ -375,14 +378,18 @@ function startGame() {
     }
     if (playerStart == 1) {
         pTurn.innerHTML = "Player 1's Turn "
-        p1D.style.backgroundColor = "Green"
-        p2D.style.backgroundColor = "Purple"
+        p1D.style.border = "10px solid green"
+        p1D.style.borderRadius  = "50px "
+        p1D.style.backgroundColor = "pink"
+        p2D.style.border = ""
     } else {
         pTurn.innerHTML = "Player 2's Turn "
-        p2D.style.backgroundColor = "Green"
-        p1D.style.backgroundColor = "Purple"
+        p2D.style.border = "10px solid green"
+        p2D.style.borderRadius  = "50px "
+        p2D.style.backgroundColor = "pink"
+        p1D.style.border = ""
     }
-    pTurn.innerHTML += questions.length
+    // pTurn.innerHTML += questions.length
     // randomize index for question
     index = Math.floor(Math.random() * questions.length)
 
@@ -474,16 +481,18 @@ function selectChoice(e) {
 
         if (e.target.classList.contains(answer)) {
             playerStart = playerStart
-            e.target.style.backgroundColor = "green"
+            e.target.style.border = "green"
+            e.target.style.border = "8px solid green"
             rSound.play()
         } else {
             playerStart == 1 ? playerStart = 2 : playerStart = 1
             log.innerHTML = `2 ${playerStart}`
-            e.target.style.backgroundColor = "red"
-            ansDiv.children[0].classList.contains(answer) ? ansDiv.children[0].style.backgroundColor = "green" :
-                ansDiv.children[1].classList.contains(answer) ? ansDiv.children[1].style.backgroundColor = "green" :
-                    ansDiv.children[2].classList.contains(answer) ? ansDiv.children[2].style.backgroundColor = "green" :
-                        ansDiv.children[3].style.backgroundColor = "green"
+            e.target.style.border = "red"
+            e.target.style.border = "8px solid red"
+            ansDiv.children[0].classList.contains(answer) ? ansDiv.children[0].style.border = "8px solid green" :
+                ansDiv.children[1].classList.contains(answer) ? ansDiv.children[1].style.border = "8px solid green" :
+                    ansDiv.children[2].classList.contains(answer) ? ansDiv.children[2].style.border = "8px solid green" :
+                        ansDiv.children[3].style.border = "8px solid green"
             wSound.play()
         }
         console.log(playerStart)
@@ -498,7 +507,7 @@ function selectChoice(e) {
         // e.target.classList.contains(answer) ? startGame(playerStart) : startGame(!playerStart)
 
         // win.innerHTML = 'hi'
-        setTimeout(startGame, 2000)
+        setTimeout(startGame, 2500)
         // startGame(playerStart)
     } else {
         return
