@@ -368,26 +368,36 @@ function startGame() {
         document.querySelector('.question').style.display = "none"
         pTurn.innerHTML = 'Player 1 Wins!!!'
         winSound.play()
+        p1points = 0
+        p2points = 0
+        // setTimeout(startGame, 5000)
         process.exit()
 
     } else if (questions.length == 1 && p2points > p1points) {
         document.querySelector('.question').style.display = "none"
         pTurn.innerHTML = 'Player 2 Wins!!!'
         winSound.play()
+        p1points = 0
+        p2points = 0
+        // setTimeout(startGame, 5000)
         process.exit()
     }
     if (playerStart == 1) {
-        pTurn.innerHTML = "Player 1's Turn "
+        pTurn.innerHTML = "<== Player 1's Turn "
         p1D.style.border = "10px solid green"
-        p1D.style.borderRadius  = "50px "
-        p1D.style.backgroundColor = "pink"
         p2D.style.border = ""
-    } else {
-        pTurn.innerHTML = "Player 2's Turn "
-        p2D.style.border = "10px solid green"
+        p1D.style.borderRadius  = "50px "
+        p1D.style.backgroundColor = "green"
         p2D.style.borderRadius  = "50px "
         p2D.style.backgroundColor = "pink"
+    } else {
+        pTurn.innerHTML = "Player 2's Turn ==>"
+        p2D.style.border = "10px solid green"
         p1D.style.border = ""
+        p2D.style.borderRadius  = "50px "
+        p2D.style.backgroundColor = "green"
+        p1D.style.borderRadius  = "50px "
+        p1D.style.backgroundColor = "pink"
     }
     // pTurn.innerHTML += questions.length
     // randomize index for question

@@ -88,8 +88,11 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 40px;
-    background-color: black;
+    font-size: 50px;
+    /* background-color: black; */
+    text-decoration: underline overline white;
+    text-shadow: 10px 0 10px purple, 0 1px 0 purple, 0 10px 10px purple, 10px 10px 10px purple;
+
 }
 .question {
     display: flex;
