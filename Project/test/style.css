@@ -4,29 +4,157 @@
 }
 
 body {
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 96vh;
+    width: 99vw;
+    background-image: url("bg1.jpg");
+    opacity: 0.8;
+    background-size: cover;
+}
+.ask {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 5vh;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.answerA,
+.answerB,
+.answerC,
+.answerD {
+    display: flex;
+    border-radius: 15px 50px 30px;
+    /* border: 4px solid red; */
+    background: white;
+    border: 4px solid red;
+    width: 45vw;
+    height: 17vh;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* margin: 10px; */
+    font-size: 4vh;
+    font-family: Arial Black;
+    
+}
+.answerA {
+    border-image: linear-gradient(to right, red, white, red) 1;
+    background-image: linear-gradient(red, white, red);
+    text-shadow: 1px 1px 10px black, 1px 1px 1px black, 1px 1px 1px black, 1px 1px 1px black;
 }
 
+.answerB {
+    border-image: linear-gradient(to right, blue, white, blue) 1;
+    background-image: linear-gradient(blue, white, blue);
+    text-shadow: 1px 1px 10px black, 1px 1px 1px black, 1px 1px 1px black, 1px 1px 1px black;
+
+}
+
+.answerC {
+    border-image: linear-gradient(to right, yellow, white, yellow) 1;
+    background-image: linear-gradient(yellow, white, yellow);
+    text-shadow: 1px 1px 10px black, 1px 1px 1px black, 1px 1px 1px black, 1px 1px 1px black;
+
+}
+
+.answerD {
+    border-image: linear-gradient(to right, green, white, green) 1;
+    background-image: linear-gradient(green, white, green);
+    text-shadow: 1px 1px 10px black, 1px 1px 1px black, 1px 1px 1px black, 1px 1px 1px black;
+
+}
+.answerDiv {
+    /* border: 3px solid blue; */
+    display: flex;
+    align-items: flex-end;
+    height: 50vh;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: flex-end; */
+    margin-top: 10vh;
+}
 .container {
     display: flex;
-    gap: 100px;
+    /* gap: 100px; */
+    width: 100%;
+    height: 10vh;
     justify-content: space-around;
     flex-direction: row;
 }
-.playerDiv, .alienDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-}
-.message {
-    text-align: center;
-}
-.status {
-    display: flex;
 
-    flex-direction: column;
+.player1D,
+.player1,
+.player2,
+.player2D {
+    /* border: 3px solid yellow; */
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 10px;
+    width: 30%;
+    color: white;
+    height: 9vh;
+    /* border-image: linear-gradient(to right, darkblue, darkorchid) 1; */
+
+}
+.player1, .player2, .p1p, .p2p {
+    font-size: 4vh;
+}
+/* .player1D {
+    border: 5px solid red;
+} */
+.p1p,
+.p2p {
+    align-content: center;
+    /* border: 2px solid yellow; */
+    /* font-size: 220%; */
+    width: 100%;
+    height: 100%;
+    /* border-radius: 45px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: linear-gradient(black, grey, black); */
+    text-shadow: 1px 1px 10px black, 1px 1px 1px black, 1px 1px 1px black, 1px 1px 1px black;
+
+}
+.title {
+    font-size: 5vh;
+    /* margin-left: 50%; */
+    border: 4px solid red;
+}
+.question {
+    width: 100%;
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 30px solid yellow; */
+    height: 100%;
+    width: 33vw;
+    font-size: 4vw;
+    color: white;
+    opacity: 1;
+    /* border: 4px solid yellow; */
+    border-image: linear-gradient(to right, yellow, white, yellow) 1;
+    background-image: linear-gradient(purple, pink, purple);
+    text-shadow: 10px 0 10px purple, 0 1px 0 purple, 0 10px 10px purple, 10px 10px 10px purple;
+}
+nav {
+    border: 1px solid black;
+    height: 10vh;
+    /* height: 50px; */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    background-image: linear-gradient(black, grey, black);
+
 }

@@ -329,6 +329,8 @@ var p1p = document.querySelector('.p1p')
 var p2p = document.querySelector('.p2p')
 var p1D = document.querySelector('.player1D')
 var p2D = document.querySelector('.player2D')
+var player1 = document.querySelector('.player1')
+var player2 = document.querySelector('.player2')
 // var x = document.querySelector('.question')
 var answer = ''
 var selectedAnswer = ''
@@ -359,11 +361,12 @@ function sound(src) {
 }
 
 function startGame() {
+    // pTurn.innerHTML = "hello"
     var audio = document.getElementById("myAudio");
     audio.volume = 0.5; // set volume to 50%
     audio.play();
     // log.innerHTML = (`length: ${questions.length} p1: ${p1points} p2: ${p2points}`)
-    log.innerHTML = playerStart
+    // log.innerHTML = playerStart
     if (questions.length == 1 && p1points > p2points) {
         document.querySelector('.question').style.display = "none"
         pTurn.innerHTML = 'Player 1 Wins!!!'
@@ -383,21 +386,23 @@ function startGame() {
         process.exit()
     }
     if (playerStart == 1) {
-        pTurn.innerHTML = "<== Player 1's Turn "
-        p1D.style.border = "10px solid green"
+        // pTurn.innerHTML = "Player 1's Turn "
+        // p1D.style.border = "10px /'
+        // p1D.style.borderRadius  = "50px "
+        p1D.style.border = "5px solid green"
         p2D.style.border = ""
-        p1D.style.borderRadius  = "50px "
-        p1D.style.backgroundColor = "green"
-        p2D.style.borderRadius  = "50px "
-        p2D.style.backgroundColor = "pink"
+        // p2D.style.borderRadius  = "50px "
+        // p2D.style.backgroundColor = "pink"
     } else {
-        pTurn.innerHTML = "Player 2's Turn ==>"
-        p2D.style.border = "10px solid green"
         p1D.style.border = ""
-        p2D.style.borderRadius  = "50px "
-        p2D.style.backgroundColor = "green"
-        p1D.style.borderRadius  = "50px "
-        p1D.style.backgroundColor = "pink"
+        p2D.style.border = "5px solid green"
+        // pTurn.innerHTML = "Player 2's Turn"
+        // p2D.style.border = "10px solid green"
+        // p1D.style.border = ""
+        // p2D.style.borderRadius  = "50px "
+        // p2D.style.backgroundColor = "green"
+        // p1D.style.borderRadius  = "50px "
+        // p1D.style.backgroundColor = "pink"
     }
     // pTurn.innerHTML += questions.length
     // randomize index for question
@@ -406,7 +411,9 @@ function startGame() {
     // show question to html
     document.querySelector('.ask').textContent = `"${questions[index].question}"`
 
-    win.innerHTML = questions[index].answer
+    // show answer on screen
+    // win.innerHTML = questions[index].answer
+
     answer = questions[index].answer
     // clear answer
     ansDiv.innerHTML = ''
@@ -421,7 +428,7 @@ function startGame() {
                     addLetter = 'D'
 
         // console.log(ansDiv)
-        ansDiv.innerHTML += `<p class="answer ${addLetter}">${addLetter} - ${questions[index].choices[i]}</p>`
+        ansDiv.innerHTML += `<p class="answer${addLetter} ${addLetter}">${addLetter} - ${questions[index].choices[i]}</p>`
     }
 
     // ansDiv.addEventListener('click', selectChoice)
@@ -462,11 +469,6 @@ function startGame() {
     //     r.innerHTML += &lt;br> ${questions[i].question}`
     // }
     // log.innerHTML += questions.length
-
-
-    function selecteAnswer() {
-
-    }
 }
 
 ansDiv.addEventListener('click', selectChoice)
@@ -496,7 +498,7 @@ function selectChoice(e) {
             rSound.play()
         } else {
             playerStart == 1 ? playerStart = 2 : playerStart = 1
-            log.innerHTML = `2 ${playerStart}`
+            // log.innerHTML = `2 ${playerStart}`
             e.target.style.border = "red"
             e.target.style.border = "8px solid red"
             ansDiv.children[0].classList.contains(answer) ? ansDiv.children[0].style.border = "8px solid green" :
@@ -512,8 +514,8 @@ function selectChoice(e) {
             playerStart == 2 && e.target.classList.contains(answer) ? p2points += 1 :
                 null
 
-        p1p.innerHTML = `Total Points: ${p1points}`
-        p2p.innerHTML = `Total Points: ${p2points}`
+        p1p.innerHTML = `${p1points}`
+        p2p.innerHTML = `${p2points}`
         // e.target.classList.contains(answer) ? startGame(playerStart) : startGame(!playerStart)
 
         // win.innerHTML = 'hi'
@@ -527,10 +529,6 @@ function selectChoice(e) {
 
 var playerStart = Math.floor(Math.random(1) * 2) + 1
 
-// coin == 1 ? playerStart = true : playerStart = false
-
-// bgSound.play()
-// bgSound.volume = 0.5
 var audio = document.getElementById("myAudio");
 audio.volume = 0.5; // set volume to 50%
 audio.play();

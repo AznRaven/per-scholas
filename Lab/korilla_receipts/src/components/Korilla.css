@@ -1,0 +1,15 @@
+
+.container {
+    display: flex;
+    gap: 3vw;
+    margin: 30px;
+}
+.receipts {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 1px solid orange;
+    width: 200px;
+}
+span {
+    color: purple;
+}
