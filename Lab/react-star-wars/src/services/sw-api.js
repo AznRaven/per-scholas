@@ -1,26 +1,22 @@
-import { useEffect } from "react";
+import { useState } from "react";
 
-async function Swapi() {
-  // let [ship, setShip] = useState(null);
+export async function getData() {
+  // let url = `https://swapi.dev/api/starships`;
+  let url = 'https://swapi.dev/api/planets';
+  let response = await fetch(url);
+  let ships = await response.json();
+  return ships;
+}
 
-  async function getData() {
-    let url = `https://swapi.dev/api/starships/`;
-    console.log("hello");
+function Swapi() {
+  let [ship, setShip] = useState(null);
 
-    let response = await fetch(url);
-    let data = await response.json();
-
-    // console.log(data.results[0].name)
-    console.log("running");
-    let starships = data.results.map((x) => {
-      console.log(x);
-      return <h1>{x.name}</h1>;
-    });
+  async function fetchShipData() {
+    let ships = await getData();
+    setShip(ships);
   }
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-  return <div>starships</div>;
+
+  return ship;
 }
 
 export default Swapi;

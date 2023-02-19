@@ -2,11 +2,9 @@ function Score({ scores }) {
   return (
     <>
       <ul>
-        {scores.map((x) => (
+        {scores.map((x, i) => (
           // console.log(score)
-          <li key={x.date}>
-            {x.date}: {x.score}
-          </li>
+          <li key={i}>[{x.date}] : [{x.score}]</li>
         ))}
       </ul>
     </>

@@ -1,13 +1,10 @@
-import './App.css';
-import Swapi from './services/sw-api';
+import "./App.css";
+import StarShipCard from "./services/StarShipCard";
 
 function App() {
- 
-
-  
   return (
     <div className="App">
-    <Swapi />
+      <StarShipCard/>
     </div>
   );
 }
