@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 function Form() {
   let [input, setInput] = useState('');
   let [check, setCheck] = useState('Check Card')
-  useEffect(calc,)
+  useEffect(calc,[input])
 
-  // let [form, setForm] = useState('')
   function handleChange(e) {
       setInput(e.target.value);
   }
@@ -19,38 +18,28 @@ function Form() {
     console.log(`length: ${num.length}`)
     
     if(num.length>0){
-        for(let i = 0; i < (num.length); i++){
-            // console.log(`i: ${i}`)
-            // console.log(`02: ${i%2}`)
-            if((i%2)==0){
-                console.log(`i: ${i}`)
-                // str += Number(num[i])*2
-                str += num[i]
-            }else{
-                console.log(`i: ${i}`)
-                // str += num[i]
-                str += Number(num[i])*2
-            }
-            // str += (num[0]
+        for(let i = 0; i < (num.length); i++){                 
+            ((i%2)===0)? str += num[i]:str += Number(num[i])*2
         } 
-        
-        
     }
      console.log(`string: ${str}`)
      let total = 0
-     for(let i = 0; i < (str.length); i++){
-         total += Number(str[i])
-     }
+
+     for(let i in str) {total += Number(str[i])}
+
      console.log(`total: ${total}`)
-     total == 0? setCheck('Enter Credit Card'):
-     total%10 == 0 && total>20? setCheck('Card is Valid'):
+
+     total === 0? setCheck('Enter Credit Card'):
+     total%10 === 0 && total>20? setCheck('Card is Valid'):
      setCheck('Card is Invalid')
+
   }
   
   return (
     <>
       <form>
         <input value={input} onChange={handleChange}></input>
+        <br/>
         <div>{check}</div>
       </form>
     </>
