@@ -6,18 +6,16 @@ import Stock from "./Pages/Stock";
 import Home from "./Pages/Home";
 import Nav from "./components/Nav";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/stock" element={<Stock />} />
+        <Route path="/stocks" element={<Dashboard />} />
+        <Route path="/stocks/:symbol" element={<Stock />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
 }
-
-export default App;

@@ -9,12 +9,13 @@ export default function Nav() {
       <Link to="/about">
         <div>About Page</div>
       </Link>
-      <Link to="/dashboard">
+      <Link to="/stocks">
         <div>Dashboard</div>
       </Link>
-      <Link to="/stock">
+      {/* <Link to="/stocks/:symbol">
         <div>Stock</div>
-      </Link>
+      </Link> */}
     </div>
   );
 }
+

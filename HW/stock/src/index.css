@@ -24,3 +24,14 @@ code {
   color: white;
   text-decoration: none;
 }
+
+th{
+  text-align: left;
+  padding-left: 20px;
+  font-size: 4vh;
+}
+
+Table {
+  margin: auto;
+  width: 90vw;
+}

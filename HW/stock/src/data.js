@@ -1,59 +1,10 @@
-// import { useStockState } from './components/Stock';
-
-// const [stock, setStock] = useStockState();
-
-// // You can now use `stock` and `setStock` in `data.js`
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
-export default function Stock() {
-  let url =
-    "https://financialmodelingprep.com/api/v3/quote/AAPL,COST,NVDA,F,TSLA,META,AMZN, MSFT,AMD,GOOG?apikey=89839b3c5fa357dcbea035645cd7cf4a";
-  let [stock, setStock] = useState("");
-
-  const getStock = async () => {
-    try {
-      const response = await fetch(url);
-      console.log(response);
-      const data = await response.json();
-      setStock(data);
-      console.log(stock);
-      console.log(`data: ${data[0].name}`);
-    } catch (error) {
-      console.error(`error: ${error}`);
-    }
-  };
-  useEffect(() => {
-    getStock();
-  }, []);
-  return (
-    <>
-      <table>
-        <tr>
-          <th>Symbol</th>
-          <th>Company Name</th>
-          <th>Price</th>
-          <th>Change</th>
-        </tr>
-        {/* <tr>
-          <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th>
-        </tr> */}
-        {/* {stock.forEach(x => console.log(` ${x}`))   } */}
-        {/* {stock.map((x, i) => (
-            <Link key={{i}} to={`/stock/${i}`}>
-              console.log(x)
-            <tr>
-            <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th>
-            </tr>
-          </Link> */}
-        {/* ))} */}
-      </table>
-    </>
-  );
-}
+const stocks = [
+    {name: "Apple Inc.", symbol: "AAPL", lastPrice: 140.64, change: -0.280000000000001, high: 141.74, low: 140.35, open: 141.5},
+    {name: "Microsoft Corporation", symbol: "MSFT", lastPrice: 64.98, change: 0.109999999999999, high: 65.45, low: 64.76, open: 65.12},
+    {name: "Alphabet Inc.", symbol: "GOOGL", lastPrice: 835.14, change: -4.50999999999999, high: 844, low: 829.1, open: 842},
+    {name: "Facebook, Inc.", symbol: "FB", lastPrice: 140.34, change: 0.810000000000002, high: 141.0244, low: 139.76, open: 140.08},
+    {name: "Oracle Corporation", symbol: "ORCL", lastPrice: 44.65, change: -0.300000000000004, high: 45.09, low: 44.575, open: 44.91},
+    {name: "Intel Corporation", symbol: "INTL", lastPrice: 36.16, change: -0.370000000000005, high: 36.78, low: 36.125, open: 36.58}
+  ]
+  
+  export default stocks

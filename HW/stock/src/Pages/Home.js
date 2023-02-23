@@ -1,7 +1,10 @@
+import data from "../data.js";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <>
+      <h1 style={{fontSize:"2vw"}}>Most Active Stocks</h1>
       <table>
         <tr>
           <th>Symbol</th>
@@ -9,24 +12,21 @@ export default function Home() {
           <th>Price</th>
           <th>Change</th>
         </tr>
-        <tr>
-          {/* <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th> */}
-        </tr>
-        {/* {stock.forEach(x => console.log(` ${x}`))   } */}
-        {/* {stock.map((x, i) => (
-            <Link key={{i}} to={`/stock/${i}`}>
-              console.log(x)
-            <tr>
-            <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th>
-            </tr>
-          </Link> */}
-        {/* ))} */}
+                
+        {data.map((x) => {
+          return (
+            
+              <tr>
+                {/* <Link key={x.symbol} to={`/stocks/${x.symbol}`}> */}
+                <th>{x.symbol}</th>
+                <th>{x.name}</th>
+                <th>{x.lastPrice}</th>
+                <th style={x.change<0?{color: "red"}:{color:'green'}}>{x.change}</th>
+                {/* </Link> */}
+              </tr>
+            
+          );
+        })}
       </table>
     </>
   );

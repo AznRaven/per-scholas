@@ -1,49 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+import data from "../data.js";
+import { useParams } from "react-router-dom";
 
 export default function Stock() {
-  useEffect(() => {
-    getStock();
-  }, []);
+  let { symbol } = useParams();
+//   console.log(symbol);
+  let stock = data.filter((x) => x.symbol === symbol);
+//   console.log(stock);
   return (
     <>
-      <table>
-        <tr>
-          <th>Symbol</th>
-          <th>Company Name</th>
-          <th>Price</th>
-          <th>Change</th>
-        </tr>
-        {/* <tr>
-          <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th>
-        </tr> */}
-        {/* {stock.forEach(x => console.log(` ${x}`))   } */}
-        {/* {stock.map((x, i) => (
-            <Link key={{i}} to={`/stock/${i}`}>
-              console.log(x)
-            <tr>
-            <th>{stock[0].symbol}</th>
-          <th>{stock[0].name}</th>
-          <th>{stock[0].price}</th>
-          <th>{stock[0].change}</th>
-            </tr>
-          </Link> */}
-        {/* ))} */}
-      </table>
+      <h1>{stock[0].name}</h1>
+      <h2>Symbol: {stock[0].symbol}</h2>
+      <p>Change: {stock[0].change}</p>
+      <p>High: {stock[0].high}</p>
+      <p>Last Price: {stock[0].lastPrice}</p>
+      <p>Low: {stock[0].low}</p>
+      <p>Open: {stock[0].open}</p>
     </>
   );
-}
-
-const getStock = async () => {
-    try {
-    const response = await fetch(url);
-    const data = await response.json();
-    setCoin(data);
-    console.log(data)
-    }catch (error) {
-    console.error(error)
-    }
 }
