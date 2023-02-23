@@ -1,5 +1,5 @@
-// import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import data from "../data.js";
 import { useParams } from "react-router-dom";
 
@@ -19,4 +19,37 @@ export default function Stock() {
       <p>Open: {stock[0].open}</p>
     </>
   );
-}
+ }
+// import { useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+// import { getStock } from "../dataApi";
+
+// export default function Stock() {
+//   let { symbol } = useParams();
+//   let [stock, setStock] = useState(null);
+
+//   useEffect(() => {
+//     async function fetchData() {
+//       const data = await getStock();
+//       setStock(data.filter((x) => x.symbol === symbol)[0]);
+//     }
+//     fetchData();
+//   }, [symbol]);
+
+//   if (!stock) {
+//     return <div>Loading...</div>;
+//   }
+
+//   return (
+//     <>
+//       <h1>{stock.name}</h1>
+//       <h2>Symbol: {stock.symbol}</h2>
+//       <p>Change: {stock.change}</p>
+//       <p>High: {stock.high}</p>
+//       <p>Last Price: {stock.lastPrice}</p>
+//       <p>Low: {stock.low}</p>
+//       <p>Open: {stock.open}</p>
+//     </>
+//   );
+// }
+
