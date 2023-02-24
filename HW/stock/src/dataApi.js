@@ -11,6 +11,7 @@ export default function Stock({ onDataLoaded }) {
       const data = await response.json();
       setStock(data);
       onDataLoaded(data);
+
     } catch (error) {
       console.error(`error: ${error}`);
     }

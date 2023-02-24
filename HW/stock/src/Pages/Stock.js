@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../data.js";
+import Stock from "../dataApi";
 import { useParams } from "react-router-dom";
 
-export default function Stock() {
+export default function Stocks() {
   let { symbol } = useParams();
 //   console.log(symbol);
   let stock = data.filter((x) => x.symbol === symbol);
